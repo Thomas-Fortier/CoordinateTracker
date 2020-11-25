@@ -90,7 +90,7 @@ namespace CoordinateTracker.Views
             var button = new Button { Content = world.Name, Height = 50 };
 
             button.Click += WorldButton_OnClick;
-            button.Name = world.Name;
+            button.Name = _mainViewModel.RemoveSpecialCharacter(world.Name, ' ');
 
             WorldsItemsControl.Items.Add(button);
             _mainViewModel.CurrentWorld = world;
