@@ -53,5 +53,19 @@ namespace CoordinateTracker.ViewModels
             MainView.DisplayError("The coordinates entered are not valid.");
             return null;
         }
+
+        /// <summary>
+        /// Removes specific special characters from a string.
+        /// </summary>
+        /// <param name="text">The text to evaluate.</param>
+        /// <param name="specialCharacter">The special character to remove.</param>
+        /// <returns>Returns a new string with the removed characters.</returns>
+        public string RemoveSpecialCharacter(string text, char specialCharacter)
+        {
+            var newText = text.Where(character => character != specialCharacter)
+                .Aggregate("", (current, character) => current + character);
+
+            return newText;
+        }
     }
 }
